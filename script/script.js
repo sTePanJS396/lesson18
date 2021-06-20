@@ -67,7 +67,8 @@ window.addEventListener('DOMContentLoaded', function () {
                     popup.style.display = 'block';
                     popupAnimation();
                     requestAnimationFrame(popupAnimation);
-                    if (screen.width > 768) {
+                    // popupAnimationInLibrary();
+                    if (document.body.clientWidth > 786) {
                         popupLibrary.counter = popupLibrary.start;
                         requestAnimationFrame(popupAnimation);
 				    } 
@@ -80,7 +81,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const popupLibrary = {
                 counter: -900,
                 start: -900,
-                speed: 5,
+                speed: 30,
                 end: -10, 
         }
         function popupAnimation() {
@@ -88,6 +89,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     popupLibrary.counter -= popupLibrary.speed :
                     popupLibrary.counter += popupLibrary.speed;
                 popup.style.transform = `translateX(${popupLibrary.counter}px)`;
+                popup.style.setProperty('background-color', 'initial');
 
                 if (popupLibrary.start > popupLibrary.end ?
                     popupLibrary.counter > popupLibrary.end :
@@ -96,6 +98,14 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
         };
        popupAnimation(); 
+
+
+
+    //    function popupAnimationInLibrary() {
+    //        popup.classList.add('animate__animated');
+    //        popup.classList.add('animate__backInUp');
+    //    }
+    //    popupAnimationInLibrary();
        
    }
    tooglePopUp();
