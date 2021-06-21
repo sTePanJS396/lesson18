@@ -46,6 +46,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const menu = document.querySelector('menu');
         const closeBtn = document.querySelector('.close-btn');
         const menuItems = menu.querySelectorAll('ul>li');
+        const popupContent = document.querySelector('.popup-content')
 
         function heandlerMenu() {
             menu.classList.toggle('active-menu')
@@ -61,6 +62,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const popup = document.querySelector('.popup');
         const popupBtn = document.querySelectorAll('.popup-btn');
         const popupClose = document.querySelector('.popup-close');
+        const popupContent = document.querySelector('.popup-content')
 
         popupBtn.forEach((elem) => {
             elem.addEventListener('click', () => {
@@ -79,27 +81,20 @@ window.addEventListener('DOMContentLoaded', function () {
         });
         
         const popupLibrary = {
-                counter: -900,
-                start: -900,
-                speed: 30,
-                end: -10, 
+                counter: -100,
+                start: -100,
+                speed: 70,
+                end: 0, 
         }
         function popupAnimation() {
-                popupLibrary.start > popupLibrary.end ?
-                    popupLibrary.counter -= popupLibrary.speed :
-                    popupLibrary.counter += popupLibrary.speed;
-                popup.style.transform = `translateX(${popupLibrary.counter}px)`;
-                popup.style.setProperty('background-color', 'initial');
-
-                if (popupLibrary.start > popupLibrary.end ?
-                    popupLibrary.counter > popupLibrary.end :
-                    popupLibrary.counter < popupLibrary.end) {
-                    requestAnimationFrame(popupAnimation);
-                }
+            popupLibrary.counter++;
+            popupContent.style.transform = `translateX(${popupLibrary.counter - 10}%)`;
+            if (popupLibrary.counter < popupLibrary.end) {
+                requestAnimationFrame(popupAnimation);
+            }
         };
-       popupAnimation(); 
-
-
+        requestAnimationFrame(popupAnimation);
+        popupAnimation(); 
 
     //    function popupAnimationInLibrary() {
     //        popup.classList.add('animate__animated');
