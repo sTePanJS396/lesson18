@@ -69,7 +69,8 @@ window.addEventListener('DOMContentLoaded', function () {
                     popup.style.display = 'block';
                     // popupAnimationInLibrary();
                     if (document.body.clientWidth > 786) {
-                        popupAnimation();
+			    popupLibrary.counter = popupLibrary.start;
+                        	popupAnimation();
 				    } 
             });
         });
