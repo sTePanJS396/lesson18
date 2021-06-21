@@ -67,12 +67,9 @@ window.addEventListener('DOMContentLoaded', function () {
         popupBtn.forEach((elem) => {
             elem.addEventListener('click', () => {
                     popup.style.display = 'block';
-                    popupAnimation();
-                    requestAnimationFrame(popupAnimation);
                     // popupAnimationInLibrary();
                     if (document.body.clientWidth > 786) {
-                        popupLibrary.counter = popupLibrary.start;
-                        requestAnimationFrame(popupAnimation);
+                        popupAnimation();
 				    } 
             });
         });
@@ -88,13 +85,11 @@ window.addEventListener('DOMContentLoaded', function () {
         }
         function popupAnimation() {
             popupLibrary.counter++;
-            popupContent.style.transform = `translateX(${popupLibrary.counter - 10}%)`;
+            popupContent.style.transform = `translateX(${popupLibrary.counter - 12.5}%)`;
             if (popupLibrary.counter < popupLibrary.end) {
                 requestAnimationFrame(popupAnimation);
             }
         };
-        requestAnimationFrame(popupAnimation);
-        popupAnimation(); 
 
     //    function popupAnimationInLibrary() {
     //        popup.classList.add('animate__animated');
